@@ -1,0 +1,30 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: spark
+  namespace: icteam
+  labels:
+    build: spark
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'spark:latest'
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1024Mi
+    requests:
+      cpu: 1000m
+      memory: 1024Mi  
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy: {}
+  postCommit: {}
+  source:
+    type: Binary
+    binary: {}
+  runPolicy: Serial
