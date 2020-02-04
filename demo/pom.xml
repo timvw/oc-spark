@@ -51,7 +51,6 @@
                     -->
                     <useFsc>true</useFsc>
                     <recompileMode>incremental</recompileMode>
-                    <useZincServer>false</useZincServer>
                 </configuration>
                 <executions>
                     <execution>
