@@ -31,8 +31,9 @@ CMD [ "bin/spark-class", "org.apache.spark.deploy.master.Master" ]
 #COPY ./krb5.conf /etc/krb5.conf
 
 FROM maven:3.6.3-jdk-8 AS javabuilder
+COPY ./pom.xml /opt/pom.xml
 COPY ./demo /opt/demo
-WORKDIR /opt/demo
+WORKDIR /opt
 RUN mvn clean package
 
 FROM spark
